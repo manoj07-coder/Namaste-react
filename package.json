@@ -1,0 +1,26 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This is Namaste React by Manoj",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manoj07-coder/Namaste-react.git"
+  },
+  "keywords": [],
+  "author": "Manoj Sulyakodi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manoj07-coder/Namaste-react/issues"
+  },
+  "homepage": "https://github.com/manoj07-coder/Namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}

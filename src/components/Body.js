@@ -5,9 +5,9 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 
 const Body = () => {
-  const [listOfRestuarants, setListOfRestuarants] = useState([]);
+  const [listOfRestuarants, setListOfRestuarants] = useState(restaurants);
   const [searchText, setSearchText] = useState("");
-  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState(restaurants);
 
   useEffect(() => {
     fetchData();

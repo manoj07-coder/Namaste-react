@@ -206,3 +206,9 @@ a {
     padding: 15px;
   }
 }
+
+.user-card {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 5px;
+}

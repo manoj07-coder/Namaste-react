@@ -207,8 +207,80 @@ a {
   }
 }
 
+/* style.css */
+
+/* Container styling */
+.about-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Headings */
+.about-container h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.about-container h2 {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* User Card */
+/* style.css */
+
+/* General container for user cards */
 .user-card {
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin: 5px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 20px auto;
+    max-width: 400px;
+    background: linear-gradient(to bottom right, #f9f9f9, #f1f1f1);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Headings */
+.user-card h1,
+.user-card h2,
+.user-card h3,
+.user-card h4 {
+    margin: 8px 0;
+    color: #333;
+}
+
+/* Count display */
+.user-card h1 {
+    font-size: 1.4rem;
+    color: #444;
+}
+
+/* Button styling */
+.user-card button {
+    padding: 8px 14px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.user-card button:hover {
+    background-color: #0056b3;
+}
+
+.user-card button:active {
+    transform: scale(0.97);
 }

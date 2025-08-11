@@ -19,4 +19,15 @@ const ResCard = (props) => {
   );
 };
 
+export const WithPromotedLabel = (ResCard) => {
+  return (props) =>{
+    return (
+      <div className="relative">
+        <label className="absolute top-2 right-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">Promoted</label>
+        <ResCard {...props} />
+      </div>
+    )
+  }
+}
+
 export default ResCard;

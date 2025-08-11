@@ -1,4 +1,4 @@
-import ResCard from "./ResCard";
+import ResCard, {WithPromotedLabel} from "./ResCard";
 import restaurants from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -6,10 +6,13 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Offline from "./Offline";
 
+
 const Body = () => {
   const [listOfRestuarants, setListOfRestuarants] = useState(restaurants);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState(restaurants);
+
+  const ResCardWithPromotedLabel = WithPromotedLabel(ResCard);
 
   const onlineStatus = useOnlineStatus();
   useEffect(() => {
@@ -76,7 +79,9 @@ const Body = () => {
       </div>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
         {filteredRestaurants.map((restaurant) => (
-          <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}><ResCard  resData={restaurant} /></Link>
+          <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}>
+            {restaurant.info.promoted ? <ResCardWithPromotedLabel resData={restaurant}/> : <ResCard resData={restaurant} /> }
+            </Link>
         ))}
       </div>
     </div>

@@ -13,6 +13,7 @@ cuisines: [
 ],
 avgRating: 4.4,
 parentId: "27123",
+promoted:true,
 avgRatingString: "4.4",
 totalRatingsString: "1.3K+",
 sla: {
@@ -80,6 +81,7 @@ cuisines: [
 avgRating: 4.3,
 veg: true,
 parentId: "40363",
+promoted:false,
 avgRatingString: "4.3",
 totalRatingsString: "286",
 sla: {
@@ -162,6 +164,7 @@ cuisines: [
 avgRating: 4.2,
 veg: true,
 parentId: "140255",
+promoted:false,
 avgRatingString: "4.2",
 totalRatingsString: "1.1K+",
 sla: {
@@ -246,6 +249,7 @@ cuisines: [
 ],
 avgRating: 4.3,
 parentId: "71556",
+promoted:true,
 avgRatingString: "4.3",
 totalRatingsString: "553",
 sla: {
@@ -319,6 +323,7 @@ cuisines: [
 avgRating: 4.3,
 veg: true,
 parentId: "101802",
+promoted:false,
 avgRatingString: "4.3",
 totalRatingsString: "1.0K+",
 sla: {
@@ -405,6 +410,7 @@ cuisines: [
 avgRating: 4.4,
 veg: true,
 parentId: "21553",
+promoted:true,
 avgRatingString: "4.4",
 totalRatingsString: "3.0K+",
 sla: {
@@ -497,6 +503,7 @@ cuisines: [
 avgRating: 4.7,
 veg: true,
 parentId: "91635",
+promoted:false,
 avgRatingString: "4.7",
 totalRatingsString: "451",
 sla: {
@@ -584,6 +591,7 @@ cuisines: [
 ],
 avgRating: 4.1,
 parentId: "395453",
+promoted:true,
 avgRatingString: "4.1",
 totalRatingsString: "355",
 sla: {
@@ -650,6 +658,7 @@ cuisines: [
 ],
 avgRating: 4.3,
 parentId: "1935",
+promoted:false,
 avgRatingString: "4.3",
 totalRatingsString: "384",
 sla: {
@@ -721,6 +730,7 @@ cuisines: [
 avgRating: 4.7,
 veg: true,
 parentId: "2233",
+promoted:true,
 avgRatingString: "4.7",
 totalRatingsString: "321",
 sla: {
@@ -803,6 +813,7 @@ cuisines: [
 avgRating: 4.1,
 veg: true,
 parentId: "311804",
+promoted:false,
 avgRatingString: "4.1",
 totalRatingsString: "226",
 sla: {
@@ -890,6 +901,7 @@ cuisines: [
 ],
 avgRating: 4.1,
 parentId: "173932",
+promoted:true,
 avgRatingString: "4.1",
 totalRatingsString: "617",
 sla: {

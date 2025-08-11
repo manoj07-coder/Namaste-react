@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import Offline from "./Offline";
 
 const Body = () => {
   const [listOfRestuarants, setListOfRestuarants] = useState(restaurants);
@@ -33,24 +34,24 @@ const Body = () => {
 
   if(onlineStatus === false)
     return (
-      <h1>Looks like you are offline. Please check your internet connection</h1>
+      <Offline />
     );
   
 
   return (
-    <div className="body">
-      <div className="filter">
-        <div className="search-box">
+    <div  className="px-10 py-5">
+      <div className="flex gap-5 mb-6 flex-wrap">
+        <div className="flex gap-2.5">
           <input
             type="text"
-            className="search"
+            className="px-3 py-2 border border-[#ccc] rounded-lg"
             placeholder="Search for Restaurants"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
-          <button className="search-btn" onClick={()=>{
+          <button className="bg-[#ff6b35] text-white border-0 px-3.5 py-2 rounded-lg cursor-pointer transition 0.2s ease-in-out hover:bg-[#e85b2d]" onClick={()=>{
             console.log(searchText);
             const filterList = listOfRestuarants.filter((res)=>{
              return  res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -61,7 +62,7 @@ const Body = () => {
           }}>Search</button>
         </div>
         <button
-          className="filter-btn"
+          className="bg-[#ff6b35] text-white border-0 px-3.5 py-2 rounded-lg cursor-pointer transition 0.2s ease-in-out hover:bg-[#e85b2d]"
           onClick={() => {
             setFilteredRestaurants(
               filteredRestaurants.filter(
@@ -73,7 +74,7 @@ const Body = () => {
           Top Rated Restaurant
         </button>
       </div>
-      <div className="res-container">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
         {filteredRestaurants.map((restaurant) => (
           <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}><ResCard  resData={restaurant} /></Link>
         ))}

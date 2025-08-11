@@ -1,33 +1,51 @@
 import { LOGO_URL } from "../utils/constants";
-import {useState} from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
-const Header = () =>{
-  
-  const [loginBtn,setLoginBtn] = useState("Login");
-
+const Header = () => {
+  const [loginBtn, setLoginBtn] = useState("Login");
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+    <div className="flex justify-between items-center px-10 py-3 bg-[#ff6b35] text-white shadow-md">
+      {/* Logo */}
+      <div>
+        <img className="w-[70px] h-auto rounded-lg" src={LOGO_URL} alt="Logo" />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li className={`status ${onlineStatus ? "online" : "offline"}`}>
-  {onlineStatus ? "Online ✅" : "Offline 🔴"}
-</li>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About us</Link></li>
-          <li><Link to="/contact">Contact us</Link></li>
-          <li><Link to="/grocery">Grocery</Link></li>          
-          <li>Cart</li>
-          <button className="login" onClick={() => {
-            loginBtn == "Login" ? setLoginBtn("Logout") : setLoginBtn("Login");
-          }
-          }>
+
+      {/* Navigation */}
+      <div>
+        <ul className="flex items-center gap-6 list-none m-0 p-0">
+          {/* Online Status */}
+          <li className="text-base font-medium cursor-pointer transition-colors duration-200 hover:text-[#ffe7d3]">
+            {onlineStatus ? "✅ Online" : "🔴 Offline"}
+          </li>
+
+          {/* Links */}
+          <li className="text-base font-medium cursor-pointer transition-colors duration-200 hover:text-[#ffe7d3]">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="text-base font-medium cursor-pointer transition-colors duration-200 hover:text-[#ffe7d3]">
+            <Link to="/about">About us</Link>
+          </li>
+          <li className="text-base font-medium cursor-pointer transition-colors duration-200 hover:text-[#ffe7d3]">
+            <Link to="/contact">Contact us</Link>
+          </li>
+          <li className="text-base font-medium cursor-pointer transition-colors duration-200 hover:text-[#ffe7d3]">
+            <Link to="/grocery">Grocery</Link>
+          </li>
+          <li className="text-base font-medium cursor-pointer transition-colors duration-200 hover:text-[#ffe7d3]">
+            Cart
+          </li>
+
+          {/* Login Button */}
+          <button
+            className="bg-white text-[#ff6b35] px-4 py-2 rounded-2xl font-semibold cursor-pointer transition-all duration-200 hover:bg-[#ffe7d3]"
+            onClick={() =>
+              setLoginBtn(loginBtn === "Login" ? "Logout" : "Login")
+            }
+          >
             {loginBtn}
           </button>
         </ul>

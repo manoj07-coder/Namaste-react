@@ -8,6 +8,7 @@ import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
+import useOnlineStatus from "./utils/useOnlineStatus";
 // import Grocery from "./components/Grocery";
 
 const Grocery = lazy(() => import("./components/Grocery"))
@@ -15,6 +16,7 @@ const Grocery = lazy(() => import("./components/Grocery"))
 const About = lazy(()=> import("./components/About"));
 
 const AppLayout = () => {
+
   return (
     <div className="app-layout">
       <Header />

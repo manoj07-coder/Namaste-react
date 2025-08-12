@@ -1,10 +1,11 @@
 import ResCard, { WithPromotedLabel } from "./ResCard";
 import restaurants from "../utils/mockData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Offline from "./Offline";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestuarants, setListOfRestuarants] = useState(restaurants);
@@ -12,6 +13,8 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState(restaurants);
 
   const ResCardWithPromotedLabel = WithPromotedLabel(ResCard);
+
+  const { setUserName, loggedInUser } = useContext(UserContext);
 
   const onlineStatus = useOnlineStatus();
   useEffect(() => {
@@ -79,6 +82,12 @@ const Body = () => {
         >
           Top Rated Restaurant
         </button>
+        <input
+          type="text"
+          onChange={(e) => setUserName(e.target.value)}
+          value={loggedInUser}
+          className="px-3 py-2 border border-[#ccc] rounded-lg"
+        />
       </div>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
         {filteredRestaurants.map((restaurant) => (

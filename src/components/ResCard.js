@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { RES_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const ResCard = (props) => {
   const { resData } = props;

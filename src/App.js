@@ -9,19 +9,31 @@ import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
 import useOnlineStatus from "./utils/useOnlineStatus";
+import UserContext from "./utils/UserContext";
+import { useState, useEffect } from "react";
 // import Grocery from "./components/Grocery";
 
-const Grocery = lazy(() => import("./components/Grocery"))
+const Grocery = lazy(() => import("./components/Grocery"));
 
-const About = lazy(()=> import("./components/About"));
+const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState("default user");
+
+  useEffect(() => {
+    const data = {
+      name: "Manoj Sulyakodi",
+    };
+    setUserName(data.name);
+  }, []);
 
   return (
-    <div className="app-layout">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="app-layout">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
@@ -31,12 +43,16 @@ const appRouter = createBrowserRouter([
     element: <AppLayout />,
     children: [
       {
-        path:"/",
-        element:<Body />,
+        path: "/",
+        element: <Body />,
       },
       {
         path: "/about",
-        element: <Suspense fallback={<Shimmer />}><About /></Suspense>,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <About />
+          </Suspense>
+        ),
         errorElement: <Error />,
       },
       {
@@ -46,13 +62,17 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/grocery",
-        element: <Suspense fallback={<Shimmer />}><Grocery /></Suspense>,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Grocery />
+          </Suspense>
+        ),
         errorElement: <Error />,
       },
       {
-        path:"/restaurant/:resId",
-        element: <RestaurantMenu />
-      }
+        path: "/restaurant/:resId",
+        element: <RestaurantMenu />,
+      },
     ],
     errorElement: <Error />,
   },

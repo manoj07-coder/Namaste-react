@@ -2,8 +2,12 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  const [showIndex, setShowIndex] = useState(null);
+
   const { resId } = useParams();
 
   const resInfo = useRestaurantMenu(resId);
@@ -39,10 +43,12 @@ const RestaurantMenu = () => {
         </p>
       </div>
       <div>
-        {categoryList.map((category) => (
+        {categoryList.map((category, index) => (
           <RestaurantCategory
             key={category.card.card.title}
             data={category?.card?.card}
+            showMenu={index === showIndex ? true : false}
+            setShowIndex={() => setShowIndex(index)}
           />
         ))}
       </div>

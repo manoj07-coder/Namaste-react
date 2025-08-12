@@ -31,20 +31,20 @@ const RestaurantMenu = () => {
   //   );
 
   return (
-    <div className="flex justify-center items-center">
-      <div className="px-10 py-5">
+    <div className="">
+      <div className="flex flex-col justify-center items-center px-10 py-5">
         <h1 className="text-4xl mb-2 font-bold">{name}</h1>
         <p className="text-[#777] font-semibold mb-4">
           {cuisines?.join(",")} - {costForTwoMessage}
         </p>
-        <div>
-          {categoryList.map((category) => (
-            <RestaurantCategory
-              key={category.card.card.title}
-              data={category?.card?.card}
-            />
-          ))}
-        </div>
+      </div>
+      <div>
+        {categoryList.map((category) => (
+          <RestaurantCategory
+            key={category.card.card.title}
+            data={category?.card?.card}
+          />
+        ))}
       </div>
     </div>
   );

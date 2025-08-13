@@ -4,6 +4,7 @@ import UserContext from "../utils/UserContext";
 
 const ResCard = (props) => {
   const { resData } = props;
+  console.log(resData);
 
   return (
     <div className="bg-white p-3 rounded-xl shadow-md hover:-translate-y-4">

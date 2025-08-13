@@ -1,5 +1,5 @@
 import { LOGO_URL } from "../utils/constants";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
@@ -8,8 +8,6 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
   const onlineStatus = useOnlineStatus();
-
-  const { loggedInUser } = useContext(UserContext);
 
   const cartItems = useSelector((store) => store.cart.items);
   console.log(cartItems);
@@ -55,7 +53,6 @@ const Header = () => {
           >
             {loginBtn}
           </button>
-          <li>{loggedInUser}</li>
         </ul>
       </div>
     </div>

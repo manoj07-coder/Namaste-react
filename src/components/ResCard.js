@@ -7,7 +7,10 @@ const ResCard = (props) => {
   console.log(resData);
 
   return (
-    <div className="bg-white p-3 rounded-xl shadow-md hover:-translate-y-4">
+    <div
+      data-testid="resCard"
+      className="bg-white p-3 rounded-xl shadow-md hover:-translate-y-4"
+    >
       <img
         alt="res-logo"
         className="w-100% h-40 object-cover rounded-lg mb-2.5"

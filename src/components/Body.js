@@ -5,7 +5,6 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Offline from "./Offline";
-import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestuarants, setListOfRestuarants] = useState(restaurants);
@@ -13,8 +12,6 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState(restaurants);
 
   const ResCardWithPromotedLabel = WithPromotedLabel(ResCard);
-
-  const { setUserName, loggedInUser } = useContext(UserContext);
 
   const onlineStatus = useOnlineStatus();
   useEffect(() => {
@@ -35,6 +32,8 @@ const Body = () => {
     );
   };
 
+  console.log(filteredRestaurants);
+
   if (restaurants.length === 0) {
     return <Shimmer />;
   }
@@ -46,6 +45,7 @@ const Body = () => {
       <div className="flex gap-5 mb-6 flex-wrap">
         <div className="flex gap-2.5">
           <input
+            data-testid="searchInput"
             type="text"
             className="px-3 py-2 border border-[#ccc] rounded-lg"
             placeholder="Search for Restaurants"
@@ -82,12 +82,6 @@ const Body = () => {
         >
           Top Rated Restaurant
         </button>
-        <input
-          type="text"
-          onChange={(e) => setUserName(e.target.value)}
-          value={loggedInUser}
-          className="px-3 py-2 border border-[#ccc] rounded-lg"
-        />
       </div>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
         {filteredRestaurants.map((restaurant) => (
